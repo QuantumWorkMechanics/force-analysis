@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* body {
+  font-family: "Noto Sans";
+} */
+
+.bg-grid {
+  position: absolute;
+  width: max-content;
+}
+
+.add-force {
+  width: inherit;
+}
+
+.r-arrow {
+  display: inline-block;
+
+  width: 75px;
+}
+.r-arrow:before {
+  content: "";
+  opacity: 90%;
+  border-top: 3.5rem solid #0da7db;
+  border-left: 2rem solid transparent;
+  border-right: 2rem solid transparent;
+  border-bottom: 3.5rem solid transparent;
+  transform: rotateZ(-90deg) translateY(21.4%) translateX(43%);
+  position: relative;
+  display: inline-block;
+}
+
+/* .arrows:before {
+  border-top: 3.5rem solid #0da7db;
+} */
+
+.l-arrow {
+  display: inline-block;
+
+  width: 75px;
+}
+.l-arrow:before {
+  content: "";
+  opacity: 90%;
+  border-top: 3.5rem solid #ffbc17;
+  border-left: 2rem solid transparent;
+  border-right: 2rem solid transparent;
+  border-bottom: 3.5rem solid transparent;
+  transform: rotateZ(90deg) translateY(93.7%) translateX(-44%);
+  position: relative;
+  display: inline-block;
+}
+
+@media only screen and (max-width: 768px) {
+  /* .arrows:before {
+    border-top: 2rem solid #0da7db;
+  } */
+
+  .r-arrow {
+    display: inline-block;
+
+    width: 75px;
+  }
+  .r-arrow:before {
+    content: "";
+    opacity: 90%;
+    border-top: 2rem solid #106aa0;
+    border-left: 1.3rem solid transparent;
+    border-right: 1.3rem solid transparent;
+    border-bottom: 3.5rem solid transparent;
+    transform: rotateZ(-90deg) translateY(27.3%) translateX(68%);
+    position: relative;
+    display: inline-block;
+  }
+  .l-arrow {
+    display: inline-block;
+
+    width: 75px;
+  }
+  .l-arrow:before {
+    content: "";
+    opacity: 90%;
+    border-top: 2rem solid #106aa0;
+    border-left: 1.3rem solid transparent;
+    border-right: 1.3rem solid transparent;
+    border-bottom: 3.5rem solid transparent;
+    transform: rotateZ(90deg) translateY(90.3%) translateX(-70%);
+    position: relative;
+    display: inline-block;
+  }
+}
