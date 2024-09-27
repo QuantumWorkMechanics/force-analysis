@@ -13,7 +13,7 @@ function Selections({ posForces, negForces, setPosForces, setNegForces, tab, set
         <Tabs tab={tab} setTab={setTab} />
       </div>
       <div className="h-[90%] overflow-scroll relative border-b-4">
-        <div className="">
+        <div className="border-b-4">
           {tab == "pos" && <ForceAccordions forces={posForces} setForces={setPosForces} />}
           {tab == "neg" && <ForceAccordions forces={negForces} setForces={setNegForces} />}
         </div>

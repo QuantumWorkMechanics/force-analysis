@@ -1,14 +1,16 @@
 import { useState } from "react";
 
-function HeroResults() {
+function HeroResults({ total }) {
   const [isFilled, setIsFilled] = useState(false);
   const [goal, setGoal] = useState("");
   const [bullets, setBullets] = useState([]);
   const [showBulletInput, setShowBulletInput] = useState(false);
 
   function handleAdd() {
-    document.getElementById("my_modal_1").showModal();
+    document.getElementById("my_modal_add").showModal();
   }
+
+  console.log(total);
 
   return (
     <>
@@ -31,14 +33,25 @@ function HeroResults() {
             Add Goal/Action
           </div>
         )}
+        {total > 0 && (
+          <div className="bg-secondary text-white font-bold max-sm:text-sm h-8 max-sm:mt-2 md:h-10 p-1 md:p-2 rounded border-2 mt-4">
+            Total: {total}
+          </div>
+        )}
+        {total < 0 && (
+          <div className="bg-red-500 text-white font-bold max-sm:text-sm h-8 max-sm:mt-2 md:h-10 p-1 md:p-2 rounded border-2 mt-4">
+            Total: {total}
+          </div>
+        )}
         {isFilled && (
           <div onClick={handleAdd} className="absolute  bottom-3 right-3 btn w-fit btn-outline max-sm:btn-sm bg-primary text-white">
             Edit
           </div>
         )}
       </div>
-      <dialog id="my_modal_1" className="modal">
-        <div className=" max-sm:w-[80vw] modal-box">
+
+      <dialog id="my_modal_add" className="modal">
+        <div className=" w-[80vw]  modal-box">
           <h3 className=" text-md">Add Goal Below</h3>
           <div className="flex max-sm:flex-col w-full max-sm:gap-2 justify-between ">
             <input
@@ -94,6 +107,9 @@ function HeroResults() {
               })}
           </ul>
           <div className="divider"></div>
+          {/* <form method="dialog" className="modal-backdrop">
+            <button>close</button>
+          </form> */}
           <div className="modal-action">
             <form method="dialog">
               {/* if there is a button in form, it will close the modal */}

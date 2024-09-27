@@ -22,16 +22,16 @@ function Layout({ posForces, negForces, setPosForces, setNegForces }) {
           </div>
 
           <div className="col-span-4  max-sm:hidden bg-gradient-to-r from-[#0e223d] to-[#0a4676]  ">
-            <Display posForces={posForces} negForces={negForces} setNegForces={setNegForces} setPosForces={setPosForces} />
+            <Display tab={tab} posForces={posForces} negForces={negForces} setNegForces={setNegForces} setPosForces={setPosForces} />
           </div>
         </>
       )}
       {tab == "res" && (
         <div className="   mobile-res h-[90vh] bg-gradient-to-r from-[#0e223d] to-[#0a4676] ">
-          <Display posForces={posForces} negForces={negForces} setNegForces={setNegForces} setPosForces={setPosForces} />
+          <Display tab={tab} posForces={posForces} negForces={negForces} setNegForces={setNegForces} setPosForces={setPosForces} />
         </div>
       )}
-      <div className="md:hidden w-full bottom-0 fixed h-20 bg-slate-50 flex flex-col justify-center z-50">
+      <div className="md:hidden w-full bottom-0 fixed h-20 bg-slate-50 flex flex-col justify-center">
         <div role="tablist" className="tabs tabs-boxed md:my-2 ">
           <a role="tab" className={"tab " + (tab == "pos" && " tab-active ")} onClick={() => setTab("pos")}>
             Positive

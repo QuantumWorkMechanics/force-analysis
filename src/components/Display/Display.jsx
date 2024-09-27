@@ -2,8 +2,8 @@ import HeroResults from "./HeroResults";
 import Results from "./Results";
 import ScrollIcon from "./ScrollIcon";
 
-function Display({ posForces, negForces }) {
-  function getAvg(arr) {
+function Display({ posForces, negForces, tab }) {
+  function getSum(arr) {
     return arr.filter((x) => x.active).reduce((acc, current) => (acc += current.score), 0);
   }
 
@@ -11,9 +11,11 @@ function Display({ posForces, negForces }) {
     <>
       <div className="w-full h-1/3 md:h-1/6">
         <h1 className="text-accent font-bold md:text-[40pt] text-noto ml-10">Force Field Analysis</h1>
-        <div className="md:hidden mx-2 bg-blue-100 rounded-lg h-[90%] ">
-          <HeroResults />
-        </div>
+        {tab == "res" && (
+          <div className="md:hidden mx-2 bg-blue-100 rounded-lg h-[90%] ">
+            <HeroResults total={getSum(posForces) - getSum(negForces)} />
+          </div>
+        )}
       </div>
       <div className="h-3 grid grid-cols-6 md:grid-cols-8  w-full z-40 text-white max-sm:mt-4">
         {" "}
@@ -76,18 +78,18 @@ function Display({ posForces, negForces }) {
         <div className="col-span-3 h-full col-start-1 z-50 ">
           <Results forces={posForces.filter((x) => x.active)} isPos={true} />
         </div>
-        <div className="max-sm:hidden row-start-1 row-span-2 col-start-4 col-span-2 bg-blue-100 rounded-lg z-40">
-          <HeroResults />
+        <div className="max-sm:hidden row-start-1 row-span-2 col-start-4 col-span-2 bg-blue-100 rounded-lg z-50">
+          <HeroResults total={getSum(posForces) - getSum(negForces)} />
         </div>
 
         <div className="col-start-4 md:col-start-6 h-full col-span-3 z-50">
           <Results forces={negForces.filter((x) => x.active)} isPos={false} />
         </div>
       </div>
-      <div className="w-full  md:h-1/6 flex justify-around text-white font-bold">
-        <div className="bg-secondary max-sm:text-sm h-8 max-sm:mt-2 md:h-10 p-1 md:p-2 rounded border-2 z-50">Score: {getAvg(posForces)}</div>
+      <div className="w-full max-sm:absolute max-sm:bottom-28 md:h-1/6 flex  justify-around text-white font-bold">
+        <div className="bg-secondary  max-sm:text-sm h-8 max-sm:mt-2 md:h-10 p-1 md:p-2 rounded border-2 z-50">Score: {getSum(posForces)}</div>
         <div>Results</div>
-        <div className="bg-accent max-sm:text-sm h-8 max-sm:mt-2 md:h-10 p-1 md:p-2 rounded border-2 z-50 ">Score: {getAvg(negForces)}</div>
+        <div className="bg-accent  max-sm:text-sm h-8 max-sm:mt-2 md:h-10 p-1 md:p-2 rounded border-2 z-50 ">Score: {getSum(negForces)}</div>
       </div>
     </>
   );

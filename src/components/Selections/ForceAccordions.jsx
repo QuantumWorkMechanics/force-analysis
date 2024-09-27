@@ -56,7 +56,7 @@ function ForceAccordions({ forces, setForces }) {
   }
 
   return (
-    <div className="gap-1 m-2  relative h-full ">
+    <div className="gap-1 m-2  relative h-full border-b">
       <div className=" ">
         <div
           onClick={() => document.getElementById("my_modal_2").showModal()}
