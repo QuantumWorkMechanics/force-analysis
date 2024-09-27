@@ -56,7 +56,7 @@ function ForceAccordions({ forces, setForces }) {
   }
 
   return (
-    <div className="gap-1 m-2  relative h-full">
+    <div className="gap-1 m-2  relative h-full ">
       <div className=" ">
         <div
           onClick={() => document.getElementById("my_modal_2").showModal()}
@@ -73,7 +73,7 @@ function ForceAccordions({ forces, setForces }) {
           return (
             <div
               key={force.name + "_" + i}
-              className={"collapse collapse-arrow  bg-blue-100 border-2 border-slate-400 w-full  " + (force.active && " border-4 border-[#FDB517] ")}
+              className={"collapse collapse-arrow  bg-blue-100 border-2  w-full  " + (force.active && " border-4 border-accent ")}
             >
               <input type="radio" name="my-accordion-2" />
               <div className="collapse-title text-xl font-medium text-primary">{force.name}</div>
@@ -83,7 +83,7 @@ function ForceAccordions({ forces, setForces }) {
                     <button
                       onClick={() => handleValSelect(val, force.name)}
                       key={"val" + val + force.name}
-                      className={"btn btn-outline bg-primary text-white " + (val == force.score && " btn-active ")}
+                      className={"btn  btn-primary text-white " + (val == force.score && " btn-active bg-[#0da7db] ")}
                     >
                       {val}
                     </button>

@@ -12,13 +12,13 @@ function HeroResults() {
 
   return (
     <>
-      <div className="relative flex flex-col h-full justify-center items-center">
-        {goal && <h2 className="font-bold text-3xl text-primary">{goal}</h2>}
+      <div className="relative flex flex-col h-full justify-center items-center ">
+        {goal && <h2 className="font-bold text-xl md:text-3xl text-primary">{goal}</h2>}
         {bullets.length > 0 && (
           <div className="ml-8">
             {bullets.map((el, j) => {
               return (
-                <div className="text-lg flex items-center gap-2" key={"bulletDisplay" + el.bullet + j}>
+                <div className="text-sm md:text-lg flex items-center gap-2" key={"bulletDisplay" + el.bullet + j}>
                   <div className="h-2 w-2 rounded-full bg-primary"></div>
                   <div>{el.bullet}</div>
                 </div>
@@ -27,20 +27,20 @@ function HeroResults() {
           </div>
         )}
         {!isFilled && (
-          <div onClick={handleAdd} className="btn w-fit btn-outline bg-primary text-white">
+          <div onClick={handleAdd} className="btn w-fit btn-outline bg-primary  text-white max-sm:btn-sm">
             Add Goal/Action
           </div>
         )}
         {isFilled && (
-          <div onClick={handleAdd} className="absolute  bottom-3 right-3 btn w-fit btn-outline bg-primary text-white">
+          <div onClick={handleAdd} className="absolute  bottom-3 right-3 btn w-fit btn-outline max-sm:btn-sm bg-primary text-white">
             Edit
           </div>
         )}
       </div>
       <dialog id="my_modal_1" className="modal">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">Add Goal Below</h3>
-          <div className="flex w-full justify-between ">
+        <div className=" max-sm:w-[80vw] modal-box">
+          <h3 className=" text-md">Add Goal Below</h3>
+          <div className="flex max-sm:flex-col w-full max-sm:gap-2 justify-between ">
             <input
               type="text"
               value={goal}
@@ -49,7 +49,7 @@ function HeroResults() {
               className="input w-full max-w-xs bg-slate-200 border-primary"
             />
             <div
-              className="btn "
+              className="btn max-sm:btn-sm max-sm:w-28"
               onClick={() => {
                 let temp = [...bullets];
                 temp.push({ bullet: "" });

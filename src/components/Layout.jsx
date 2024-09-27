@@ -27,8 +27,8 @@ function Layout({ posForces, negForces, setPosForces, setNegForces }) {
         </>
       )}
       {tab == "res" && (
-        <div className="   mobile-res h-screen">
-          <MobileDisplay posForces={posForces} negForces={negForces} setNegForces={setNegForces} setPosForces={setPosForces} />
+        <div className="   mobile-res h-[90vh] bg-gradient-to-r from-[#0e223d] to-[#0a4676] ">
+          <Display posForces={posForces} negForces={negForces} setNegForces={setNegForces} setPosForces={setPosForces} />
         </div>
       )}
       <div className="md:hidden w-full bottom-0 fixed h-20 bg-slate-50 flex flex-col justify-center z-50">
@@ -44,7 +44,12 @@ function Layout({ posForces, negForces, setPosForces, setNegForces }) {
           </a>
         </div>
       </div>
-      <img className="absolute z-50 w-[200px] right-4 max-sm:top-4 md:bottom-4" src={logo} alt="" />
+      {tab != "res" && <img className="absolute z-50 w-[200px] right-4 max-sm:top-4 md:bottom-4" src={logo} alt="" />}
+      {tab == "res" && (
+        <div className="flex justify-center">
+          <img className="absolute z-50 w-[100px] bottom-20" src={logo} alt="" />
+        </div>
+      )}
     </div>
   );
 }

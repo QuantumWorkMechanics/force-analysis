@@ -66,7 +66,7 @@
   .r-arrow:before {
     content: "";
     opacity: 90%;
-    border-top: 2rem solid #106aa0;
+    border-top: 2rem solid #0da7db;
     border-left: 1.3rem solid transparent;
     border-right: 1.3rem solid transparent;
     border-bottom: 3.5rem solid transparent;
@@ -82,7 +82,7 @@
   .l-arrow:before {
     content: "";
     opacity: 90%;
-    border-top: 2rem solid #106aa0;
+    border-top: 2rem solid #ffbc17;
     border-left: 1.3rem solid transparent;
     border-right: 1.3rem solid transparent;
     border-bottom: 3.5rem solid transparent;
